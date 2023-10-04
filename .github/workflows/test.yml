@@ -1,5 +1,5 @@
-name: test, build and push the application to itch.io
-run-name: build for ${{ github.actor }}, ${{ github.event.head_commit.message }}
+name: test the application
+run-name: run tests for ${{ github.actor }}, ${{ github.event.head_commit.message }}
 on:
   push:
     branches:

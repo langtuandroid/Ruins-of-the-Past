@@ -31,7 +31,7 @@ jobs:
       with:
         projectPath: ${{ env.PROJECT_PATH }}
         githubToken: ${{ secrets.GITHUB_TOKEN }}
-        coverageOptions: pathFiltersFromFile:ProjectSettings\Packages\com.unity.testtools.codecoverage\Settings.json;filtersFromFile:ProjectSettings\Packages\com.unity.testtools.codecoverage\Settings.json;generateAdditionalMetrics;generateHtmlReport;generateBadgeReport
+        coverageOptions: useProjectSettings
     - name: Upload test artifacts
       uses: actions/upload-artifact@v2
       if: always()

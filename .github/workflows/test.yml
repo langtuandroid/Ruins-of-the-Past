@@ -32,6 +32,9 @@ jobs:
         projectPath: ${{ env.PROJECT_PATH }}
         githubToken: ${{ secrets.GITHUB_TOKEN }}
         coverageOptions: useProjectSettings
+    - name: Main
+      run: |
+        ls
     - name: Upload test artifacts
       uses: actions/upload-artifact@v2
       if: always()

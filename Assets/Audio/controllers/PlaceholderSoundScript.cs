@@ -4,8 +4,19 @@ using UnityEngine;
 
 public class PlaceholderSoundScript : MonoBehaviour
 {
-    //This is all placeholder stuff to make sure FMOD is working.
-    //This scriopt will be removed when porper systems are implemented.
+    //This is all placeholder stuff to test if FMOD is working.
+    //This script will be removed when proper systems are implemented.
+    public int placeholder;
+
+    private void FixedUpdate()
+    {
+        placeholder++;
+        if (placeholder == 120)
+        {
+            placeholder = 0;
+            PlaySound();
+        }
+    }
 
     private void PlaySound()
     {

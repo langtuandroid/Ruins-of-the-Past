@@ -106,12 +106,13 @@ public class BreakablePlatform : MonoBehaviour
 
     private void DisableComponents(bool isPhysics)
     {
-        respawnCollider.enabled = false;
         respawnTrigger.enabled = false;
-        
-        if(!isPhysics)
+
+        if (!isPhysics)
+        {
+            respawnCollider.enabled = false;
             respawnRenderer.enabled = false;
-        
+        }
     }
 
     private void EnableComponents()

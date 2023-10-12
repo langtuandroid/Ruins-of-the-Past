@@ -14,6 +14,24 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Forest Playtest Past.unity
     guid: 259b6cae715c93a4290652bc31bf1164
+  - enabled: 1
+    path: Assets/Scenes/FirstPuzzle.unity
+    guid: 3275aeb9f03804340be82617ae41616f
+  - enabled: 0
+    path: Assets/Scenes/FMODSetupScene.unity
+    guid: ea261218a2621ca40a50565ef401c30b
+  - enabled: 1
+    path: Assets/Scenes/Forest.unity
+    guid: 2e4dba95d79d4ed4f8fa2159b4b5c8cd
+  - enabled: 1
+    path: Assets/Scenes/Forest Playtest Time Rift.unity
+    guid: 7175862a159113f4eb13539007230e0a
+  - enabled: 0
+    path: Assets/Scenes/SampleScene.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 0
+    path: Assets/Scenes/Feature Prototyping/Breakable Platforms.unity
+    guid: 12eb3f4e17ea19f4b853a429ce36c0cd
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: c7e376d4bbb9f144da1d4153f012069c, type: 2}
   m_UseUCBPForAssetBundles: 0

@@ -6,7 +6,8 @@ public class MoveOnTrigger : MonoBehaviour
 {
     [SerializeField] private Vector3 moveDirection;
     [SerializeField] private Quaternion moveRotation;
-    [SerializeField] private float speed;
+    [SerializeField] private float moveSpeed;
+    [SerializeField] private float rotateSpeed;
     [SerializeField] private List<Collider> triggeredBy;
     [SerializeField] private float WPradius = 1;
     private bool moving = false;
@@ -17,8 +18,8 @@ public class MoveOnTrigger : MonoBehaviour
         if (moving)
         {
             if (Vector3.Distance(moveDirection, transform.position) < WPradius && Quaternion.Angle(moveRotation, transform.rotation) < WPradius) moving = false;
-            transform.position = Vector3.MoveTowards(transform.position, moveDirection, speed * Time.deltaTime);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, moveRotation, speed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, moveDirection, moveSpeed * Time.deltaTime);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, moveRotation, rotateSpeed * Time.deltaTime);
         }
     }
 
@@ -34,7 +35,8 @@ public class MoveOnTrigger : MonoBehaviour
         }
     }
 
-    private void TriggerMove()
+    [ContextMenu("Trigger")]
+    public void TriggerMove()
     {
         moving = true;
     }

@@ -19,7 +19,7 @@ public class BreakablePlatform : MonoBehaviour
     [SerializeField] [Range(1f, 10f)] private float respawnDelay = 1f;
     [SerializeField] private BreakMode breakMode = BreakMode.Particles;
     public UnityEvent onBreak = new();
-    
+    public bool canRespawn = false;
     
     [Header("Dont touch!")]
     [SerializeField] private GameObject particlePrefab;
@@ -32,8 +32,6 @@ public class BreakablePlatform : MonoBehaviour
     private Vector3 _startPosition;
     private Quaternion _startRotation;
     
-    
-
     private void Start()
     {
         Transform t = transform;
@@ -71,7 +69,8 @@ public class BreakablePlatform : MonoBehaviour
                 break;
         }
         
-        StartCoroutine(Respawn());
+        if(canRespawn)
+            StartCoroutine(Respawn());
         onBreak.Invoke();
     }
 
@@ -119,5 +118,10 @@ public class BreakablePlatform : MonoBehaviour
         respawnCollider.enabled = true;
         respawnTrigger.enabled = true; 
         respawnRenderer.enabled = true;
+    }
+
+    public void SetRespawn(bool canrespawn)
+    {
+        canRespawn = canrespawn;
     }
 }

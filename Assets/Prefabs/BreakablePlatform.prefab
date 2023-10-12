@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 9000134881444668691}
   - component: {fileID: 7687951649628366255}
+  - component: {fileID: 409335650251889150}
+  - component: {fileID: 2450444964970595891}
   m_Layer: 0
   m_Name: BreakablePlatform
   m_TagString: Untagged
@@ -27,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 8}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5851214299296673971}
@@ -55,6 +57,57 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &409335650251889150
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1148940901835710539}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &2450444964970595891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1148940901835710539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77754cd35476b6e4db85521005133ac7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  showParticles: 1
+  triggeredBy: []
+  breakDelay: 2
+  respawnDelay: 4
+  breakMode: 0
+  onBreak:
+    m_PersistentCalls:
+      m_Calls: []
+  particlePrefab: {fileID: 8040288431953896096, guid: 1af784bd2f099bc4fbdaff4bc56fa6b0, type: 3}
+  respawnRenderer: {fileID: 7219087707627235355}
+  respawnCollider: {fileID: 7687951649628366255}
+  respawnTrigger: {fileID: 5729669945523607806}
 --- !u!1 &3147759786228975659
 GameObject:
   m_ObjectHideFlags: 0
@@ -65,9 +118,8 @@ GameObject:
   m_Component:
   - component: {fileID: 437278326051644667}
   - component: {fileID: 5729669945523607806}
-  - component: {fileID: 6702384697059065592}
   m_Layer: 0
-  m_Name: Trigger
+  m_Name: TriggerBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -109,26 +161,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6702384697059065592
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3147759786228975659}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77754cd35476b6e4db85521005133ac7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  showParticles: 1
-  triggeredBy:
-  - {fileID: 0}
-  - {fileID: 0}
-  particlePrefab: {fileID: 8040288431953896096, guid: 1af784bd2f099bc4fbdaff4bc56fa6b0, type: 3}
-  onBreak:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &4458814951969716737
 GameObject:
   m_ObjectHideFlags: 0

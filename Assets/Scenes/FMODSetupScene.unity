@@ -150,6 +150,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enable: 0
+  foxObject: {fileID: 123999446}
+  wolfObject: {fileID: 940410865}
+  zvol: 0
+  dist: 0
 --- !u!4 &23226550
 Transform:
   m_ObjectHideFlags: 0
@@ -5665,7 +5669,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5315914247671708058, guid: 4608cf594a5b89a469de3dea1dfdf1f7, type: 3}
       propertyPath: <testSFX>k__BackingField.Path
-      value: event:/WalkEvent
+      value: event:/FoxWalkEvent
       objectReference: {fileID: 0}
     - target: {fileID: 5315914247671708058, guid: 4608cf594a5b89a469de3dea1dfdf1f7, type: 3}
       propertyPath: <testSFX>k__BackingField.Guid.Data1

@@ -17,6 +17,7 @@ public class EventManager : MonoBehaviour
     }
 
     //Below add a reference of each event
-    [field: Header("Test SFX")]
-    [field: SerializeField] public EventReference testSFX { get; private set; }
+    [field: Header("Walk events")]
+    [field: SerializeField] public EventReference foxWalk { get; private set; }
+    [field: SerializeField] public EventReference wolfWalk { get; private set; }
 }

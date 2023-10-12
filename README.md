@@ -3,4 +3,7 @@
 
 ## Tale: 
 
-Fox and Wolf are two friends in the modern world, and they were transported to the “**Elemental Wilds**” by a mysterious force. They are granted magical masks that has special abilities. They must work together to the unknown rich landscapes, solve puzzles, and overcome challenges to restore the old ruins power from a mysterious entity that threatens to disrupt it. 
+Fox and Wolf are two friends in the modern world, and they were transported to the “**Elemental Wilds**” by a mysterious force. They are granted magical masks that has special abilities. They must work together to the unknown rich landscapes, solve puzzles, and overcome challenges to restore the old ruins power from a mysterious entity that threatens to disrupt it.
+
+# Code coverage report
+https://zerofoxstudio.github.io/Ruins-of-the-Past/

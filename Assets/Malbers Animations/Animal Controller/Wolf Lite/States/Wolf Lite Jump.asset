@@ -115,7 +115,7 @@ MonoBehaviour:
     Variable: {fileID: 11400000, guid: 5c4fe0b08ccfb364689cd2dfa25c82aa, type: 2}
   Jumps:
     UseConstant: 1
-    ConstantValue: 2
+    ConstantValue: 1
     Variable: {fileID: 0}
   ResetJump:
   - {fileID: 11400000, guid: 7e364e53b77644c47aa3abdaa2e2c08c, type: 2}

@@ -16,7 +16,6 @@ GameObject:
   - component: {fileID: 6876082612800764315}
   - component: {fileID: 8124829164920431657}
   - component: {fileID: 4206759328247319137}
-  - component: {fileID: 244392964875506749}
   m_Layer: 2
   m_Name: CM Brain
   m_TagString: MainCamera
@@ -73,7 +72,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 28.136042
+  field of view: 28.136206
   orthographic: 0
   orthographic size: 10
   m_Depth: -1
@@ -226,22 +225,6 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
---- !u!114 &244392964875506749
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1086986387696008}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec298e75ac5e3cf4db69ad7058232ecc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  players: []
-  activeCamera: {fileID: 20092073445527294}
-  hiddenCamera: {fileID: 1541294799268062798}
-  hiddenScene: {fileID: 102900000, guid: 259b6cae715c93a4290652bc31bf1164, type: 3}
 --- !u!1 &8026711609087688232
 GameObject:
   m_ObjectHideFlags: 0

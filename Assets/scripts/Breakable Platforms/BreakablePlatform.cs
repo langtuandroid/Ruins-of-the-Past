@@ -68,7 +68,6 @@ public class BreakablePlatform : MonoBehaviour
                 DisableComponents(true);
                 break;
             default:
-                Debug.Log("No breakMode set");
                 break;
         }
         

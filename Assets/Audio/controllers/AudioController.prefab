@@ -44,13 +44,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3b5805e7e25b344ea738841c9aa90fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <testSFX>k__BackingField:
+  <foxWalk>k__BackingField:
     Guid:
-      Data1: 1804021401
-      Data2: 1181460769
-      Data3: -1770170193
-      Data4: 1779728769
-    Path: event:/Walk placeholder
+      Data1: 331455460
+      Data2: 1210290732
+      Data3: -712259447
+      Data4: 306943005
+    Path: event:/FoxWalkEvent
+  <wolfWalk>k__BackingField:
+    Guid:
+      Data1: -1114110877
+      Data2: 1304822801
+      Data3: -1259477881
+      Data4: -1540404845
+    Path: event:/WolfWalkEvent
 --- !u!1 &7466642658477994563
 GameObject:
   m_ObjectHideFlags: 0

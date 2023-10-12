@@ -1,27 +1,28 @@
 fileFormatVersion: 2
-guid: 42b4693fd4dc93e4ea6db9c84d4e379b
+guid: 79c89db1833831740aee981c0d90d2d4
 PluginImporter:
-  externalObjects: {}
-  serializedVersion: 2
+  serializedVersion: 1
   iconMap: {}
   executionOrder: {}
-  defineConstraints: []
   isPreloaded: 0
-  isOverridable: 0
-  isExplicitlyReferenced: 0
-  validateReferences: 1
   platformData:
-  - first:
-      Any: 
-    second:
-      enabled: 1
+    Any:
+      enabled: 0
       settings: {}
-  - first:
-      Editor: Editor
-    second:
+    Editor:
       enabled: 0
       settings:
         DefaultValueInitialized: true
+    iOS:
+      enabled: 1
+      settings: {}
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 161631
+  packageName: FMOD for Unity
+  packageVersion: 2.02.17
+  assetPath: Assets/Plugins/FMOD/platforms/ios/lib/libfmodstudiounityplugin.a
+  uploadId: 617436

@@ -12,7 +12,7 @@ public class TimePiece : MonoBehaviour
 
     [SerializeField] private Camera hiddenCamera;
 
-    [SerializeField] private SceneAsset hiddenScene;
+    [SerializeField] private int hiddenSceneIndex;
 
     private bool isInPast = false;
 
@@ -27,7 +27,7 @@ public class TimePiece : MonoBehaviour
             _capsuleColliders.Add(player.GetComponent<Rigidbody>());
         }
 
-        SceneManager.LoadScene(hiddenScene.name, LoadSceneMode.Additive);
+        SceneManager.LoadScene(hiddenSceneIndex, LoadSceneMode.Additive);
 
         var texture = new RenderTexture(Screen.width, Screen.height, 24);
         Shader.SetGlobalTexture(TimepieceTexture, texture);

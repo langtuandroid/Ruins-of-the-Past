@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using FMOD.Studio;
-using UnityEngine.Networking;
 
 
 public class GrassWalkingEvent : MonoBehaviour
@@ -15,46 +12,63 @@ public class GrassWalkingEvent : MonoBehaviour
     public bool enable;
     public GameObject foxObject;
     public GameObject wolfObject;
-    private Rigidbody _foxRigidBody, _wolfRigidBody;
 
     private void Start()
     {
-        _foxRigidBody = foxObject.GetComponent<Rigidbody>();
-        _wolfRigidBody = wolfObject.GetComponent<Rigidbody>();
+        //Initialize events
         foxFootstepsGrass = AudioManager.instance.CreateEventInstance(EventManager.instance.foxWalk);
         wolfFootstepsGrass = AudioManager.instance.CreateEventInstance(EventManager.instance.wolfWalk);
     }
 
     private void FixedUpdate()
     {
-        UpdateSound(foxFootstepsGrass, _foxRigidBody);
-        UpdateSound(wolfFootstepsGrass, _wolfRigidBody);
+        //Update sound events
+        UpdateSound(foxFootstepsGrass, VelocityZ(foxObject), GroundDistance(foxObject));
+        UpdateSound(wolfFootstepsGrass, VelocityZ(wolfObject), GroundDistance(wolfObject));
     }
 
-    private void UpdateSound(EventInstance eventInstance, Rigidbody rb)
+    private float VelocityZ(GameObject gameObject) //Return velocity of object
     {
-        var t = rb.transform;
-        var result = Physics.Raycast(
-            t.position + new Vector3(0.0f, 0.0001f, 0.0f),
-            -t.up,
-            out var ray
-        );
+        var objectRB = gameObject.GetComponent<Rigidbody>();
+        return (objectRB.velocity.z);
+    }
 
-        if (!enable ||
-            !result ||
-            ray.distance > 0.1 ||
-            (rb.velocity.z > -0.5 && rb.velocity.z < 0.5))
+    private float GroundDistance(GameObject gameObject) //Return distance from ground for object
+    {
+        //Create raycast
+        RaycastHit rcHit;
+
+        //Setup vector
+        var objectRB = gameObject.GetComponent<Rigidbody>();
+        Vector3 originPos = objectRB.position;
+        Ray downRay = new Ray(originPos, -Vector3.up);
+
+        //Execute vector
+        if (Physics.Raycast(downRay, out rcHit))
         {
-            eventInstance.stop(STOP_MODE.ALLOWFADEOUT);
-            return;
+            return (rcHit.distance);
         }
+        else return 0; //If raycast does not hit ground set failsafe
+    }
 
-        PLAYBACK_STATE currentSoundState;
-        eventInstance.getPlaybackState(out currentSoundState);
-        if (currentSoundState == PLAYBACK_STATE.STOPPED)
+    private void UpdateSound(EventInstance eventInstance, float zVelocity, float dist) //Update sound events according to object state
+    {
+        //Check if proper conditions are met
+        if ((enable == true && zVelocity <= -0.5 && dist <= 0.1) || (enable == true && zVelocity >= 0.5 && dist <= 0.1))
         {
-            //Start event
-            eventInstance.start();
+            //Check current playback state
+            PLAYBACK_STATE currentSoundState;
+            eventInstance.getPlaybackState(out currentSoundState);
+            if (currentSoundState == PLAYBACK_STATE.STOPPED)
+            {
+                //Start event
+                eventInstance.start();
+            }
+        }
+        else
+        {
+            //Stop event
+            eventInstance.stop(STOP_MODE.ALLOWFADEOUT);
         }
     }
 }

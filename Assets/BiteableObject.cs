@@ -2,18 +2,20 @@ using Codice.Client.Common.GameUI;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.UIElements;
 using UnityEngine;
 
 public class BiteableObject : MonoBehaviour
 {
-    [SerializeField] GameObject[] ObjectStates;
     private int currentStateIndex = 0;
     private int maxStateIndex;
-    [SerializeField] int damageThreshold;
-
+    private int TakeDamageTimer = 1;
     private int currentDamage = 0;
+    private bool canTakeDamage = true;
 
-    private Collider Collider;
+    [SerializeField] GameObject[] ObjectStates;
+    [SerializeField] int damageThreshold;
+    [SerializeField] SphereCollider SphereCollider;
 
     private void OnValidate()
     {
@@ -30,7 +32,6 @@ public class BiteableObject : MonoBehaviour
     {
         maxStateIndex = ObjectStates.Length - 1;
         UpdateStateObjects();
-        Collider = GetComponent<Collider>();
     }
 
     public void ReceiveDamage(int damage)
@@ -56,6 +57,31 @@ public class BiteableObject : MonoBehaviour
         }
     }
 
+    private void OnTriggerStay(Collider other)
+    {
+        if(other == SphereCollider)
+        {
+            BiteObject biteobject = other.GetComponent<BiteObject>();
+            if (biteobject != null)
+            {
+                if(biteobject.CanDealDamage() == true)
+                {
+                    if (canTakeDamage)
+                    {
+                        ReceiveDamage(biteobject.Damage);
+                        canTakeDamage = false;
+                        StartCoroutine(Cooldown(TakeDamageTimer));
+                    }
+                }
+            }
+        }
+    }
+
+    IEnumerator Cooldown(int seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        canTakeDamage = true;
+    }
 
 
 

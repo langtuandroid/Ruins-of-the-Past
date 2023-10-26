@@ -52,7 +52,7 @@ public class BreakablePlatform : MonoBehaviour
         }
     }
 
-    IEnumerator TriggerBreak()
+    public IEnumerator TriggerBreak()
     {
         yield return new WaitForSeconds(breakDelay);
         switch (breakMode)
@@ -87,7 +87,7 @@ public class BreakablePlatform : MonoBehaviour
         _rigidbody.isKinematic = false;
     }
 
-    IEnumerator Respawn()
+    public IEnumerator Respawn()
     {
         yield return new WaitForSeconds(respawnDelay);
         Reset();

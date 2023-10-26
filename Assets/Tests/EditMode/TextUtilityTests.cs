@@ -10,72 +10,72 @@ public class TextUtilityTests
     [Test]
     public void IsWhitespaceShouldBeTrueSpace()
     {
-        Assert.IsTrue(TextUtility.isWhitespace(' '));
+        Assert.IsTrue(' '.isWhitespace());
     }
 
     [Test]
     public void IsWhitespaceShouldBeTrueAscii()
     {
-        Assert.IsTrue(TextUtility.isWhitespace('\u0020'));
+        Assert.IsTrue('\u0020'.isWhitespace());
     }
 
     [Test]
     public void IsWhitespaceShouldBeFalseCharacter()
     {
-        Assert.IsFalse(TextUtility.isWhitespace('a'));
+        Assert.IsFalse('a'.isWhitespace());
     }
 
     [Test]
     public void IsWhitespaceShouldBeFalseSymbol()
     {
-        Assert.IsFalse(TextUtility.isWhitespace('„'));
+        Assert.IsFalse('ï¿½'.isWhitespace());
     }
 
     [Test]
     public void RemoveSpecialCharactersShouldBeEmptyString() {
-        string result = TextUtility.RemoveSpecialCharacters("!@#$%^&*()");
+        var result = "!@#$%^&*()".RemoveSpecialCharacters();
         Assert.IsTrue(result.Length == 0);
     }
 
     [Test]
     public void RemoveSpecialCharactersShouldBeSame()
     {
-        string result = TextUtility.RemoveSpecialCharacters("abcDEF123");
+        var result = "abcDEF123".RemoveSpecialCharacters();
         Assert.IsTrue(result == "abcDEF123");
     }
 
     [Test]
     public void RemoveSpecialCharactersShouldBeRemoved()
     {
-        string result = TextUtility.RemoveSpecialCharacters("test{€#&^");
+        var result = "test{ï¿½#&^".RemoveSpecialCharacters();
         Assert.IsTrue(result == "test");
     }
 
     [Test]
     public void RemoveSpecialCharactersShouldBeWhitespace()
     {
-        string result = TextUtility.RemoveSpecialCharacters(" ");
+        var result = " ".RemoveSpecialCharacters();
         Assert.IsTrue(result == " ");
     }
 
     [Test]
     public void RemoveWhitespacesShouldBeEmpty()
     {
-        string result = TextUtility.RemoveWhitespaces("        ");
+        var result = "        ".RemoveWhitespaces();
         Assert.IsTrue(result.Length == 0);
     }
 
     [Test]
     public void RemoveWhitespacesShouldBeSame()
     {
-        string result = TextUtility.RemoveWhitespaces("testing");
+        var result = "testing".RemoveWhitespaces();
         Assert.IsTrue(result == "testing");
     }
 
     [Test]
     public void RemoveWhitespacesShouldRemove()
     {
-        string result = TextUtility.RemoveWhitespaces("this is a test");
+        var result = "this is a test".RemoveWhitespaces();
         Assert.IsTrue(result == "thisisatest");
     }
 }

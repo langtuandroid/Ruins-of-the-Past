@@ -1,6 +1,8 @@
+using Codice.Client.Common.GameUI;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.UIElements;
 using UnityEngine;
 
 public class BiteableObject : MonoBehaviour
@@ -10,10 +12,13 @@ public class BiteableObject : MonoBehaviour
     private int TakeDamageTimer = 1;
     private int currentDamage = 0;
     private bool canTakeDamage = true;
+    private ShakeObject shakeObject;
+    private ParticleSystem PS;
 
     [SerializeField] GameObject[] ObjectStates;
     [SerializeField] int damageThreshold;
     [SerializeField] SphereCollider SphereCollider;
+
 
     private void OnValidate()
     {
@@ -28,6 +33,9 @@ public class BiteableObject : MonoBehaviour
 
     private void Start()
     {
+        PS = GetComponentInParent<ParticleSystem>();
+        PS.Stop();
+        shakeObject = gameObject.GetComponent<ShakeObject>();
         maxStateIndex = ObjectStates.Length - 1;
         UpdateStateObjects();
     }
@@ -43,7 +51,7 @@ public class BiteableObject : MonoBehaviour
             UpdateStateObjects();
         }else if(currentDamage >= maxStateIndex)
         {
-            GameObject.Destroy(this.gameObject);
+            Destroy(gameObject);
         }
     }
 
@@ -66,9 +74,11 @@ public class BiteableObject : MonoBehaviour
                 {
                     if (canTakeDamage)
                     {
+                        PS.Play();
                         ReceiveDamage(biteobject.Damage);
                         canTakeDamage = false;
-                        StartCoroutine(Cooldown(TakeDamageTimer));
+                        ShakeObject();
+                        StartCoroutine(Cooldown(TakeDamageTimer));       
                     }
                 }
             }
@@ -79,6 +89,12 @@ public class BiteableObject : MonoBehaviour
     {
         yield return new WaitForSeconds(seconds);
         canTakeDamage = true;
+        PS.Stop();
+    }
+
+    private void ShakeObject()
+    {
+        shakeObject.StartShake();
     }
 
 

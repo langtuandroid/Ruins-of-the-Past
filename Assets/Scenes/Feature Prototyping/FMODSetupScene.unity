@@ -130,7 +130,7 @@ GameObject:
   m_Component:
   - component: {fileID: 23226550}
   - component: {fileID: 23226549}
-  - component: {fileID: 23226551}
+  - component: {fileID: 23226552}
   m_Layer: 0
   m_Name: eventMaster
   m_TagString: Untagged
@@ -162,13 +162,13 @@ Transform:
   m_GameObject: {fileID: 23226548}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.709431, y: -4.246533, z: -36.599483}
+  m_LocalPosition: {x: -12.6, y: -2.829, z: -63.57}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &23226551
+--- !u!114 &23226552
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -177,10 +177,30 @@ MonoBehaviour:
   m_GameObject: {fileID: 23226548}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f227f693f9cd2c643b73d5dfef453372, type: 3}
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventState: 0
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1332407572
+      Data2: 1313495269
+      Data3: 303380389
+      Data4: 1225556814
+    Path: event:/BirdLoopEvent
+  Event: 
+  PlayEvent: 11
+  StopEvent: 12
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params:
+  - Name: BirdVolume
+    Value: 1
+  OverrideAttenuation: 1
+  OverrideMinDistance: 25
+  OverrideMaxDistance: 30
 --- !u!1001 &42314219
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5557,6 +5577,22 @@ PrefabInstance:
     - target: {fileID: 5315914247671708058, guid: 4608cf594a5b89a469de3dea1dfdf1f7, type: 3}
       propertyPath: <testSFX>k__BackingField.Guid.Data4
       value: 306943005
+      objectReference: {fileID: 0}
+    - target: {fileID: 5315914247671708058, guid: 4608cf594a5b89a469de3dea1dfdf1f7, type: 3}
+      propertyPath: <birdEvent>k__BackingField.Guid.Data1
+      value: -1332407572
+      objectReference: {fileID: 0}
+    - target: {fileID: 5315914247671708058, guid: 4608cf594a5b89a469de3dea1dfdf1f7, type: 3}
+      propertyPath: <birdEvent>k__BackingField.Guid.Data2
+      value: 1313495269
+      objectReference: {fileID: 0}
+    - target: {fileID: 5315914247671708058, guid: 4608cf594a5b89a469de3dea1dfdf1f7, type: 3}
+      propertyPath: <birdEvent>k__BackingField.Guid.Data3
+      value: 303380389
+      objectReference: {fileID: 0}
+    - target: {fileID: 5315914247671708058, guid: 4608cf594a5b89a469de3dea1dfdf1f7, type: 3}
+      propertyPath: <birdEvent>k__BackingField.Guid.Data4
+      value: 1225556814
       objectReference: {fileID: 0}
     - target: {fileID: 6310854329747812608, guid: 4608cf594a5b89a469de3dea1dfdf1f7, type: 3}
       propertyPath: m_LocalPosition.x

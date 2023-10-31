@@ -58,6 +58,20 @@ MonoBehaviour:
       Data3: -1259477881
       Data4: -1540404845
     Path: event:/WolfWalkEvent
+  <birdEvent>k__BackingField:
+    Guid:
+      Data1: -1332407572
+      Data2: 1313495269
+      Data3: 303380389
+      Data4: 1225556814
+    Path: event:/BirdLoopEvent
+  <waterFlowingEvent>k__BackingField:
+    Guid:
+      Data1: 837616989
+      Data2: 1198869627
+      Data3: 1315911832
+      Data4: 480768744
+    Path: event:/WaterEvent
 --- !u!1 &7466642658477994563
 GameObject:
   m_ObjectHideFlags: 0

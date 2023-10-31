@@ -20,4 +20,8 @@ public class EventManager : MonoBehaviour
     [field: Header("Walk events")]
     [field: SerializeField] public EventReference foxWalk { get; private set; }
     [field: SerializeField] public EventReference wolfWalk { get; private set; }
+
+    [field: Header("Ambience events")]
+    [field: SerializeField] public EventReference birdEvent { get; private set; }
+    [field: SerializeField] public EventReference waterFlowingEvent { get; private set; }
 }

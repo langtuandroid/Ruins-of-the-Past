@@ -9,7 +9,7 @@ public class WalkEventController : MonoBehaviour
     private GameObject grassSoundEmitter;
     private GameObject stoneSoundEmitter;
     private GameObject woodSoundEmitter;
-    public string groundType;
+    private string groundType;
 
 
     // Start is called before the first frame update

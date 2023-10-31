@@ -2050,8 +2050,8 @@ MonoBehaviour:
   AllowNonRigidbodyDoppler: 0
   Params: []
   OverrideAttenuation: 1
-  OverrideMinDistance: 15
-  OverrideMaxDistance: 30
+  OverrideMinDistance: 30
+  OverrideMaxDistance: 50
 --- !u!4 &609727941
 Transform:
   m_ObjectHideFlags: 0
@@ -6179,6 +6179,14 @@ PrefabInstance:
       value: event:/FoxWalkEvent
       objectReference: {fileID: 0}
     - target: {fileID: 5315914247671708058, guid: 4608cf594a5b89a469de3dea1dfdf1f7, type: 3}
+      propertyPath: <non3Devent>k__BackingField.Path
+      value: event:/FoxGrassWalkEvent
+      objectReference: {fileID: 0}
+    - target: {fileID: 5315914247671708058, guid: 4608cf594a5b89a469de3dea1dfdf1f7, type: 3}
+      propertyPath: <non3dEvent>k__BackingField.Path
+      value: event:/FoxGrassWalkEvent
+      objectReference: {fileID: 0}
+    - target: {fileID: 5315914247671708058, guid: 4608cf594a5b89a469de3dea1dfdf1f7, type: 3}
       propertyPath: <testSFX>k__BackingField.Guid.Data1
       value: 331455460
       objectReference: {fileID: 0}
@@ -6209,6 +6217,38 @@ PrefabInstance:
     - target: {fileID: 5315914247671708058, guid: 4608cf594a5b89a469de3dea1dfdf1f7, type: 3}
       propertyPath: <birdEvent>k__BackingField.Guid.Data4
       value: 1225556814
+      objectReference: {fileID: 0}
+    - target: {fileID: 5315914247671708058, guid: 4608cf594a5b89a469de3dea1dfdf1f7, type: 3}
+      propertyPath: <non3Devent>k__BackingField.Guid.Data1
+      value: 1201097155
+      objectReference: {fileID: 0}
+    - target: {fileID: 5315914247671708058, guid: 4608cf594a5b89a469de3dea1dfdf1f7, type: 3}
+      propertyPath: <non3Devent>k__BackingField.Guid.Data2
+      value: 1093587621
+      objectReference: {fileID: 0}
+    - target: {fileID: 5315914247671708058, guid: 4608cf594a5b89a469de3dea1dfdf1f7, type: 3}
+      propertyPath: <non3Devent>k__BackingField.Guid.Data3
+      value: -676723530
+      objectReference: {fileID: 0}
+    - target: {fileID: 5315914247671708058, guid: 4608cf594a5b89a469de3dea1dfdf1f7, type: 3}
+      propertyPath: <non3Devent>k__BackingField.Guid.Data4
+      value: -672408242
+      objectReference: {fileID: 0}
+    - target: {fileID: 5315914247671708058, guid: 4608cf594a5b89a469de3dea1dfdf1f7, type: 3}
+      propertyPath: <non3dEvent>k__BackingField.Guid.Data1
+      value: 1201097155
+      objectReference: {fileID: 0}
+    - target: {fileID: 5315914247671708058, guid: 4608cf594a5b89a469de3dea1dfdf1f7, type: 3}
+      propertyPath: <non3dEvent>k__BackingField.Guid.Data2
+      value: 1093587621
+      objectReference: {fileID: 0}
+    - target: {fileID: 5315914247671708058, guid: 4608cf594a5b89a469de3dea1dfdf1f7, type: 3}
+      propertyPath: <non3dEvent>k__BackingField.Guid.Data3
+      value: -676723530
+      objectReference: {fileID: 0}
+    - target: {fileID: 5315914247671708058, guid: 4608cf594a5b89a469de3dea1dfdf1f7, type: 3}
+      propertyPath: <non3dEvent>k__BackingField.Guid.Data4
+      value: -672408242
       objectReference: {fileID: 0}
     - target: {fileID: 6310854329747812608, guid: 4608cf594a5b89a469de3dea1dfdf1f7, type: 3}
       propertyPath: m_LocalPosition.x

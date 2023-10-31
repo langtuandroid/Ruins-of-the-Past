@@ -201,16 +201,16 @@
 			<value>3</value>
 		</property>
 		<property name="frequencyA">
-			<value>225.849808</value>
+			<value>1024.91663</value>
 		</property>
 		<property name="frequencyB">
-			<value>2206.08374</value>
+			<value>1830.78857</value>
 		</property>
 		<property name="qualityA">
-			<value>0.351172417</value>
+			<value>0.929931104</value>
 		</property>
 		<property name="qualityB">
-			<value>0.518620729</value>
+			<value>0.351172417</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{3da70b02-11f2-49d0-9fb2-b9e8f60ab268}">

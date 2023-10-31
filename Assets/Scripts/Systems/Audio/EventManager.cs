@@ -23,4 +23,5 @@ public class EventManager : MonoBehaviour
 
     [field: Header("Ambience events")]
     [field: SerializeField] public EventReference birdEvent { get; private set; }
+    [field: SerializeField] public EventReference waterFlowingEvent { get; private set; }
 }

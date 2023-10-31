@@ -41,6 +41,7 @@ public class GrassWalkingEvent : MonoBehaviour
         //Setup vector
         var objectRB = gameObject.GetComponent<Rigidbody>();
         Vector3 originPos = objectRB.position;
+        originPos.y = originPos.y + 0.1f;
         Ray downRay = new Ray(originPos, -Vector3.up);
 
         //Execute vector

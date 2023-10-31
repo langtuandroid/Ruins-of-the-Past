@@ -129,7 +129,7 @@
 	</object>
 	<object class="EventMixerGroup" id="{f75a9cba-c7ac-48b2-8afe-329e92764d94}">
 		<property name="volume">
-			<value>-10</value>
+			<value>-29.5</value>
 		</property>
 		<property name="name">
 			<value>Audio 1</value>
@@ -206,7 +206,7 @@
 			<value>22000</value>
 		</property>
 		<property name="curveShape">
-			<value>0.180837229</value>
+			<value>0.494131565</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{cc5ac769-1b84-4d7b-8c45-810f232da3b2}">

@@ -113,6 +113,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{5029abd1-923f-4f5c-94c9-0807c7b9d73d}">
+		<property name="volume">
+			<value>1.5</value>
+		</property>
 		<property name="name">
 			<value>Audio 1</value>
 		</property>
@@ -197,7 +200,14 @@
 	</object>
 	<object class="MixerBusPanner" id="{38b0b45d-211e-4941-a999-b4eabaf61ed5}" />
 	<object class="MixerBusFader" id="{b30c725a-6433-4640-9654-a1bce55cb3aa}" />
-	<object class="SpatialiserEffect" id="{feb44bc1-bcac-4ad8-ae74-e91d31eed120}" />
+	<object class="SpatialiserEffect" id="{feb44bc1-bcac-4ad8-ae74-e91d31eed120}">
+		<property name="maximumDistance">
+			<value>50</value>
+		</property>
+		<property name="overrideRange">
+			<value>true</value>
+		</property>
+	</object>
 	<object class="MultibandEqEffect" id="{7efec59d-8274-4717-aff9-3ceac8aac32c}">
 		<property name="filterTypeB">
 			<value>4</value>
@@ -206,13 +216,13 @@
 			<value>7336.98682</value>
 		</property>
 		<property name="frequencyB">
-			<value>308.171722</value>
+			<value>129.082764</value>
 		</property>
 		<property name="qualityA">
 			<value>0.602344871</value>
 		</property>
 		<property name="qualityB">
-			<value>0.455827594</value>
+			<value>0.539551735</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{00dbfc24-5150-4aa4-bd24-5194b3917812}">

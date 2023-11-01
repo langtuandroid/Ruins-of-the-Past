@@ -617,14 +617,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 46822005}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ec298e75ac5e3cf4db69ad7058232ecc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   players: []
   activeCamera: {fileID: 1236838173}
-  hiddenCamera: {fileID: 1236838172}
+  hiddenCamera: {fileID: 0}
   hiddenSceneIndex: 2
 --- !u!4 &46822007
 Transform:
@@ -2823,9 +2823,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d37996a0a4542ee48acde358377116e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enable: 1
-  foxObject: {fileID: 123999446}
-  wolfObject: {fileID: 940410865}
 --- !u!4 &240124200
 Transform:
   m_ObjectHideFlags: 0
@@ -13535,7 +13532,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 8026711609087688232, guid: 7721b17458de7274da9fb6df12db1326, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1086986387696008, guid: 7721b17458de7274da9fb6df12db1326, type: 3}
@@ -13545,11 +13543,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 2109608108}
   m_SourcePrefab: {fileID: 100100000, guid: 7721b17458de7274da9fb6df12db1326, type: 3}
---- !u!20 &1236838172 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 1541294799268062798, guid: 7721b17458de7274da9fb6df12db1326, type: 3}
-  m_PrefabInstance: {fileID: 1236838171}
-  m_PrefabAsset: {fileID: 0}
 --- !u!20 &1236838173 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 20092073445527294, guid: 7721b17458de7274da9fb6df12db1326, type: 3}

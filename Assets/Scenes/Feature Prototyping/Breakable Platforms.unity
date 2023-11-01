@@ -837,6 +837,11 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!1 &1313347217 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6602686439603622919, guid: dcfda4ab7fe140841b4196b264b5b513, type: 3}
+  m_PrefabInstance: {fileID: 3553620735937837695}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1322276805
 GameObject:
   m_ObjectHideFlags: 0
@@ -2125,9 +2130,21 @@ PrefabInstance:
       propertyPath: wolf
       value: 
       objectReference: {fileID: 1525330530}
+    - target: {fileID: 4969521614172309456, guid: dcfda4ab7fe140841b4196b264b5b513, type: 3}
+      propertyPath: pauseMenu
+      value: 
+      objectReference: {fileID: 1313347217}
+    - target: {fileID: 4969521614172309456, guid: dcfda4ab7fe140841b4196b264b5b513, type: 3}
+      propertyPath: pauseButton
+      value: 27
+      objectReference: {fileID: 0}
+    - target: {fileID: 6602686439603622919, guid: dcfda4ab7fe140841b4196b264b5b513, type: 3}
+      propertyPath: m_Name
+      value: PauseMenu
+      objectReference: {fileID: 0}
     - target: {fileID: 6942593276977401512, guid: dcfda4ab7fe140841b4196b264b5b513, type: 3}
       propertyPath: m_Name
-      value: PauzeManager
+      value: PauseManager
       objectReference: {fileID: 0}
     - target: {fileID: 8673732208349810314, guid: dcfda4ab7fe140841b4196b264b5b513, type: 3}
       propertyPath: m_LocalPosition.x

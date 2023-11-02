@@ -34,12 +34,6 @@ public class CameraShaker : MonoBehaviour
 
         if (shakeTimer >= 0f) return;
         
-        ResetCamera();
-    }
-    
-    private void ResetCamera()
-    {
-        var perlin = cam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
-        perlin.m_AmplitudeGain = 0;
+        noise.m_AmplitudeGain = 0;
     }
 }

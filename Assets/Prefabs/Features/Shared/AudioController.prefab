@@ -46,18 +46,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <foxWalk>k__BackingField:
     Guid:
-      Data1: 331455460
-      Data2: 1210290732
-      Data3: -712259447
-      Data4: 306943005
-    Path: event:/FoxWalkEvent
+      Data1: 1201097155
+      Data2: 1093587621
+      Data3: -676723530
+      Data4: -672408242
+    Path: event:/FoxGrassWalkEvent
   <wolfWalk>k__BackingField:
     Guid:
-      Data1: -1114110877
-      Data2: 1304822801
-      Data3: -1259477881
-      Data4: -1540404845
-    Path: event:/WolfWalkEvent
+      Data1: 138483946
+      Data2: 1210884772
+      Data3: 1892730008
+      Data4: -1610236534
+    Path: event:/WolfGrassWalkEvent
+  <birdEvent>k__BackingField:
+    Guid:
+      Data1: -1332407572
+      Data2: 1313495269
+      Data3: 303380389
+      Data4: 1225556814
+    Path: event:/BirdLoopEvent
+  <waterFlowingEvent>k__BackingField:
+    Guid:
+      Data1: 837616989
+      Data2: 1198869627
+      Data3: 1315911832
+      Data4: 480768744
+    Path: event:/WaterEvent
 --- !u!1 &7466642658477994563
 GameObject:
   m_ObjectHideFlags: 0

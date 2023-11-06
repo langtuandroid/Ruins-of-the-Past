@@ -9,10 +9,11 @@ public class Menu : MonoBehaviour
     private Canvas _mainMenu;
 
     private Canvas _pauseMenu;
-    
+
     private void Start()
     {
-        _mainMenu = Instantiate(mainMenuPrefab);
+        if (_mainMenu == null)
+            _mainMenu = Instantiate(mainMenuPrefab);
     }
 
     public void TogglePause()
@@ -25,7 +26,7 @@ public class Menu : MonoBehaviour
 
     public void OnNewGame()
     {
-        _mainMenu.enabled = false;
+        Destroy(_mainMenu);
 
         if (_pauseMenu == null)
             _pauseMenu = Instantiate(pauseMenuPrefab);

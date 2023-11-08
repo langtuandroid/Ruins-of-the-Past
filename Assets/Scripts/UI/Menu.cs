@@ -1,34 +1,61 @@
+using System.Collections.Generic;
+using MalbersAnimations;
 using UnityEngine;
 
-public class Menu : MonoBehaviour
+namespace UI
 {
-    [SerializeField] private Canvas mainMenuPrefab;
-
-    [SerializeField] private Canvas pauseMenuPrefab;
-
-    private Canvas _mainMenu;
-
-    private Canvas _pauseMenu;
-
-    private void Start()
+    public sealed class Menu : MonoBehaviour
     {
-        if (_mainMenu == null)
-            _mainMenu = Instantiate(mainMenuPrefab);
-    }
+        [SerializeField] private List<GameObject> freezeTargets;
 
-    public void TogglePause()
-    {
-        if (_pauseMenu == null)
-            return;
+        [SerializeField] private Canvas mainMenu;
 
-        _pauseMenu.enabled = true;
-    }
+        [SerializeField] private Canvas pauseMenu;
 
-    public void OnNewGame()
-    {
-        Destroy(_mainMenu);
+        private bool _frozen;
 
-        if (_pauseMenu == null)
-            _pauseMenu = Instantiate(pauseMenuPrefab);
+        private void Start()
+        {
+            mainMenu.enabled = true;
+            pauseMenu.enabled = false;
+
+            if (!_frozen)
+                ToggleFreeze(false);
+        }
+
+        private void ToggleFreeze(bool toggleAnimator)
+        {
+            foreach (var o in freezeTargets)
+            {
+                // TODO: Not every game object is guaranteed to have all of these components, possibly could cause errors in the future
+                var input = o.GetComponent<MInput>();
+                var animator = o.GetComponent<Animator>();
+                var rigidBody = o.GetComponent<Rigidbody>();
+
+                input.enabled = _frozen;
+                animator.enabled = toggleAnimator && _frozen;
+                rigidBody.isKinematic = _frozen;
+            }
+
+            _frozen = !_frozen;
+        }
+
+        public void TogglePause()
+        {
+            if (mainMenu.enabled)
+                return;
+
+            ToggleFreeze(true);
+
+            pauseMenu.enabled = _frozen;
+        }
+
+        public void OnNewGame()
+        {
+            mainMenu.enabled = false;
+
+            if (_frozen)
+                ToggleFreeze(true);
+        }
     }
 }

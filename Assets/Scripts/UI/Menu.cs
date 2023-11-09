@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using MalbersAnimations;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace UI
 {
@@ -56,6 +57,16 @@ namespace UI
 
             if (_frozen)
                 ToggleFreeze(true);
+        }
+
+        public void OnQuit()
+        {
+            Application.Quit();
+        }
+
+        public void OnMainMenu()
+        {
+            SceneManager.LoadScene(0, LoadSceneMode.Single);
         }
     }
 }

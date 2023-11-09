@@ -162,6 +162,18 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5712843605914546005, guid: d3ff4be38a5dc8243bea438e181085fa, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8408107368882124039}
+    - target: {fileID: 5712843605914546005, guid: d3ff4be38a5dc8243bea438e181085fa, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: TogglePause
+      objectReference: {fileID: 0}
+    - target: {fileID: 5712843605914546005, guid: d3ff4be38a5dc8243bea438e181085fa, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UI.Menu, MainAssembly
+      objectReference: {fileID: 0}
     - target: {fileID: 5930219609256599058, guid: d3ff4be38a5dc8243bea438e181085fa, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -201,6 +213,22 @@ PrefabInstance:
     - target: {fileID: 6942593276977401512, guid: d3ff4be38a5dc8243bea438e181085fa, type: 3}
       propertyPath: m_Name
       value: PauseManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 7256014649070147474, guid: d3ff4be38a5dc8243bea438e181085fa, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7256014649070147474, guid: d3ff4be38a5dc8243bea438e181085fa, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8408107368882124039}
+    - target: {fileID: 7256014649070147474, guid: d3ff4be38a5dc8243bea438e181085fa, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnMainMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 7256014649070147474, guid: d3ff4be38a5dc8243bea438e181085fa, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UI.Menu, MainAssembly
       objectReference: {fileID: 0}
     - target: {fileID: 7598615225048174782, guid: d3ff4be38a5dc8243bea438e181085fa, type: 3}
       propertyPath: m_AnchorMax.y
@@ -416,6 +444,18 @@ PrefabInstance:
     - target: {fileID: 5314308235305781990, guid: e84c7e5acee1de8409ee46a05075e57e, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5693391765146960315, guid: e84c7e5acee1de8409ee46a05075e57e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8408107368882124039}
+    - target: {fileID: 5693391765146960315, guid: e84c7e5acee1de8409ee46a05075e57e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnQuit
+      objectReference: {fileID: 0}
+    - target: {fileID: 5693391765146960315, guid: e84c7e5acee1de8409ee46a05075e57e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UI.Menu, MainAssembly
       objectReference: {fileID: 0}
     - target: {fileID: 7229309488314225047, guid: e84c7e5acee1de8409ee46a05075e57e, type: 3}
       propertyPath: m_LocalPosition.x

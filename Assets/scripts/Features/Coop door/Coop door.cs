@@ -21,6 +21,7 @@ public class Coopdoor : MonoBehaviour
 
     // The renderer, fade states and initial colors of each object
     private List<Renderer> renderers = new List<Renderer>();
+    private List<MoveOnTrigger> moveOnTriggers = new List<MoveOnTrigger>();
     private List<FadeState> fadeStates = new List<FadeState>();
     private List<Vector3> initialColors = new List<Vector3>();
 
@@ -53,6 +54,8 @@ public class Coopdoor : MonoBehaviour
             if (renderer) renderers.Add(renderer);
             fadeStates.Add(FadeState.None);
             initialColors.Add(renderer.material.GetVector(shaderPropertyId));
+            var moveOnTrigger = obj.GetComponent<MoveOnTrigger>();
+            moveOnTriggers.Add(moveOnTrigger);
         }
     }
 
@@ -107,9 +110,9 @@ public class Coopdoor : MonoBehaviour
         toggleableCollider.enabled = false;
 
         // disable the objects
-        foreach (var obj in objects)
+        foreach (MoveOnTrigger trigger in moveOnTriggers)
         {
-            obj.SetActive(false);
+            trigger.TriggerMove();
         }
     }
 

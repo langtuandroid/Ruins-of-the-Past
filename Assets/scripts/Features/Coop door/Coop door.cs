@@ -54,7 +54,7 @@ public class Coopdoor : MonoBehaviour
             if (renderer) renderers.Add(renderer);
             fadeStates.Add(FadeState.None);
             initialColors.Add(renderer.material.GetVector(shaderPropertyId));
-            var moveOnTrigger = obj.GetComponent<MoveOnTrigger>();
+            MoveOnTrigger moveOnTrigger = obj.GetComponent<MoveOnTrigger>();
             moveOnTriggers.Add(moveOnTrigger);
         }
     }

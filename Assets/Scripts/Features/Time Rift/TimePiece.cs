@@ -25,13 +25,19 @@ namespace Features.Time_Rift
 
         private static readonly int TimepieceTexture = Shader.PropertyToID("_TimepieceTexture");
 
-        private List<Rigidbody> _capsuleColliders = new();
+        private List<Collider> _colliders = new();
+
+        private List<Rigidbody> _rigidbodies = new();
+
+        private List<MAnimal> _controllers = new();
 
         private void Start()
         {
             foreach (var player in players)
             {
-                _capsuleColliders.Add(player.GetComponent<Rigidbody>());
+                _colliders.AddRange(player.GetComponentsInChildren<Collider>());
+                _rigidbodies.AddRange(player.GetComponentsInChildren<Rigidbody>());
+                _controllers.AddRange(player.GetComponentsInChildren<MAnimal>());
             }
 
             SceneManager.LoadScene(hiddenSceneIndex, LoadSceneMode.Additive);
@@ -55,29 +61,22 @@ namespace Features.Time_Rift
 
             var oldMask = !_isInPast ? activePhysicsLayerMask : hiddenPhysicsLayerMask;
             var newMask = _isInPast ? activePhysicsLayerMask : hiddenPhysicsLayerMask;
-            foreach (var c in _capsuleColliders)
+
+            foreach (var capsuleCollider in _colliders)
             {
-                c.excludeLayers = newMask;
+                capsuleCollider.includeLayers = oldMask;
+                capsuleCollider.excludeLayers = newMask;
             }
 
-            foreach (var player in players)
+            foreach (var rigidBody in _rigidbodies)
             {
-                player.GetComponent<MAnimal>().groundLayer =
-                    new LayerReference(LayerMask.GetMask(_isInPast ? "Past" : "Default"));
+                rigidBody.includeLayers = oldMask;
+                rigidBody.excludeLayers = newMask;
+            }
 
-                var colliders = player.GetComponentsInChildren<Collider>();
-                foreach (var capsuleCollider in colliders)
-                {
-                    capsuleCollider.includeLayers = oldMask;
-                    capsuleCollider.excludeLayers = newMask;
-                }
-
-                var rigidbodies = player.GetComponentsInChildren<Rigidbody>();
-                foreach (var rigidBody in rigidbodies)
-                {
-                    rigidBody.includeLayers = oldMask;
-                    rigidBody.excludeLayers = newMask;
-                }
+            foreach (var controller in _controllers)
+            {
+                controller.groundLayer = new LayerReference(LayerMask.GetMask(_isInPast ? "Past" : "Default"));
             }
         }
     }

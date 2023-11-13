@@ -47,10 +47,8 @@ namespace Features.Time_Rift
             hiddenCamera.targetTexture = texture;
         }
 
-        private void Update()
+        public void OnInteract()
         {
-            if (!Input.GetKeyDown(KeyCode.R)) return; // TODO: Convert to new input system
-
             _isInPast = !_isInPast;
 
             activeCamera.targetTexture = hiddenCamera.targetTexture;

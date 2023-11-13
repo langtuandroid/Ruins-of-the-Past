@@ -62,7 +62,8 @@ namespace Features.Time_Rift
 
             foreach (var player in players)
             {
-                player.GetComponent<MAnimal>().groundLayer = new LayerReference(LayerMask.NameToLayer("Past"));
+                player.GetComponent<MAnimal>().groundLayer =
+                    new LayerReference(LayerMask.GetMask(_isInPast ? "Past" : "Default"));
 
                 var colliders = player.GetComponentsInChildren<Collider>();
                 foreach (var capsuleCollider in colliders)

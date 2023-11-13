@@ -11,15 +11,21 @@ namespace Features.Time_Rift
     {
         [SerializeField] private GameObject[] players;
 
-        [SerializeField] private Camera activeCamera;
-
-        [SerializeField] private Camera hiddenCamera;
-
-        [SerializeField] private int hiddenSceneIndex;
+        [Header("These settings control the active (default) scene")] [SerializeField]
+        private Camera activeCamera;
 
         [SerializeField] private LayerMask activePhysicsLayerMask;
 
+        [SerializeField] private LayerMask activeGroundLayer;
+
+        [Header("These settings control the hidden (off-screen) scene")] [SerializeField]
+        private Camera hiddenCamera;
+
+        [SerializeField] private int hiddenSceneIndex;
+
         [SerializeField] private LayerMask hiddenPhysicsLayerMask;
+
+        [SerializeField] private LayerMask hiddenGroundLayer;
 
         private bool _isInPast;
 
@@ -74,7 +80,7 @@ namespace Features.Time_Rift
 
             foreach (var controller in _controllers)
             {
-                controller.groundLayer = new LayerReference(LayerMask.GetMask(_isInPast ? "Past" : "Default"));
+                controller.groundLayer = new LayerReference(_isInPast ? hiddenGroundLayer : activeGroundLayer);
             }
         }
     }

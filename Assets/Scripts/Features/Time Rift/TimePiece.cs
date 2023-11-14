@@ -15,7 +15,7 @@ namespace Features.Time_Rift
         private Camera activeCamera;
 
         [SerializeField] private LayerMask activeCameraCullingMask;
-        
+
         [SerializeField] private LayerMask activePhysicsLayerMask;
 
         [SerializeField] private LayerMask activeGroundLayer;
@@ -26,7 +26,7 @@ namespace Features.Time_Rift
         [SerializeField] private int hiddenSceneIndex;
 
         [SerializeField] private LayerMask hiddenCameraCullingMask;
-        
+
         [SerializeField] private LayerMask hiddenPhysicsLayerMask;
 
         [SerializeField] private LayerMask hiddenGroundLayer;
@@ -52,6 +52,8 @@ namespace Features.Time_Rift
 
             SceneManager.LoadScene(hiddenSceneIndex, LoadSceneMode.Additive);
 
+            SetLayers();
+
             var texture = new RenderTexture(Screen.width, Screen.height, 24);
             Shader.SetGlobalTexture(TimepieceTexture, texture);
             hiddenCamera.targetTexture = texture;
@@ -74,6 +76,11 @@ namespace Features.Time_Rift
             // Swap cameras
             (activeCamera, hiddenCamera) = (hiddenCamera, activeCamera);
 
+            SetLayers();
+        }
+
+        private void SetLayers()
+        {
             var oldMask = !_isInPast ? activePhysicsLayerMask : hiddenPhysicsLayerMask;
             var newMask = _isInPast ? activePhysicsLayerMask : hiddenPhysicsLayerMask;
 

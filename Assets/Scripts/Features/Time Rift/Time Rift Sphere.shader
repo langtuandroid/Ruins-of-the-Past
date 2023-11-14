@@ -3,11 +3,11 @@ Shader "Unlit/Time Rift Sphere"
     Properties
     {
         _MainTex ("Hidden scene render texture", 2D) = "white" {}
-        _ScreenSpaceScale ("Screen space scale", float) = 0.38
-        _DistortionExponent ("Distortion exponent", range(1, 20)) = 1
+        _ScreenSpaceScale ("Screen space scale", float) = 2
+        _DistortionExponent ("Distortion exponent", range(1, 20)) = 4
         _SpherePercentage ("Sphere Percentage", range(0, 1)) = 0.25
-        _OuterGlowMultiplier ("Outer glow multiplier", float) = 0.21
-        _OuterGlowExponent ("Outer glow exponent", float) = 2
+        _OuterGlowMultiplier ("Outer glow multiplier", float) = 1
+        _OuterGlowExponent ("Outer glow exponent", float) = 4
         _OuterGlowTint ("Outer glow tint", color) = (1, 1, 1, 1)
     }
     SubShader
@@ -24,11 +24,16 @@ Shader "Unlit/Time Rift Sphere"
 
         Cull Back
         Blend SrcAlpha OneMinusSrcAlpha, One OneMinusSrcAlpha
-        ZTest LEqual
+        ZTest Always
         ZWrite Off
 
         Pass
         {
+            Tags
+            {
+                "LightMode" = "SRPDefaultUnlit"
+            }
+
             CGPROGRAM
             #pragma vertex vert
             #pragma fragment frag
@@ -125,6 +130,12 @@ Shader "Unlit/Time Rift Sphere"
             fixed4 frag(const v2f i) : SV_Target
             {
                 const float3 sphere_origin = UNITY_MATRIX_M._m03_m13_m23;
+                const float3 scale = float3(
+                    length(unity_ObjectToWorld._m00_m10_m20),
+                    length(unity_ObjectToWorld._m01_m11_m21),
+                    length(unity_ObjectToWorld._m02_m12_m22)
+                );
+
                 float4 sphere_screen = ComputeScreenPos(mul(UNITY_MATRIX_VP, float4(sphere_origin, 1.0)));
                 float2 screen_position = sphere_screen.xy / abs(sphere_screen.w);
                 float2 screen_position_ratio = float2(
@@ -143,7 +154,7 @@ Shader "Unlit/Time Rift Sphere"
                     _WorldSpaceCameraPos,
                     i.view_dir,
                     sphere_origin,
-                    _SpherePercentage,
+                    _SpherePercentage * scale.x,
                     hit,
                     hit_position,
                     hit_normal
@@ -151,20 +162,27 @@ Shader "Unlit/Time Rift Sphere"
 
                 const float3 inner_fresnel = pow(1 - fresnel(hit_normal, i.view_dir), _OuterGlowExponent) *
                     _OuterGlowMultiplier * _OuterGlowTint;
+
                 float3 mask = acos(saturate(cos(
                     dot(
                         UnityObjectToWorldDir(i.normal),
                         normalize(_WorldSpaceCameraPos - sphere_origin)
                     )
-                )));
-                mask = mask / 1.57;
+                ))) / 1.57;
+                mask = pow(mask / (1 - _SpherePercentage), _DistortionExponent);
+
+                const float2 distorted_uv = screen_uv + vector_to_center * pow(
+                    mask / (1 - _SpherePercentage), _DistortionExponent);
 
                 fixed4 color = lerp(
-                    tex2D(_CameraOpaqueTexture, screen_uv + mask * (mask * vector_to_center)),
+                    tex2D(_CameraOpaqueTexture, distorted_uv),
                     half4(tex2D(_MainTex, float2(screen_uv.x, 1 - screen_uv.y)) + inner_fresnel, 1),
+                    //half4(half3(0, 0, 0) + inner_fresnel, 1.0),
                     hit
                 );
 
+                //color = float4(distorted_uv, 1, 1);
+                //color = float4(mask.xyz, mask.x);
                 UNITY_APPLY_FOG(i.fogCoord, col);
                 return color;
             }

@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 namespace Features.Time_Rift
 {
-    public class TimePiece : MonoBehaviour
+    public class TimeRiftManager : MonoBehaviour
     {
         [SerializeField] private GameObject[] players;
 

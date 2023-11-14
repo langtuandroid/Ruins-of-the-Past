@@ -14,6 +14,8 @@ namespace Features.Time_Rift
         [Header("These settings control the active (default) scene")] [SerializeField]
         private Camera activeCamera;
 
+        [SerializeField] private LayerMask activeCameraCullingMask;
+        
         [SerializeField] private LayerMask activePhysicsLayerMask;
 
         [SerializeField] private LayerMask activeGroundLayer;
@@ -23,13 +25,15 @@ namespace Features.Time_Rift
 
         [SerializeField] private int hiddenSceneIndex;
 
+        [SerializeField] private LayerMask hiddenCameraCullingMask;
+        
         [SerializeField] private LayerMask hiddenPhysicsLayerMask;
 
         [SerializeField] private LayerMask hiddenGroundLayer;
 
         private bool _isInPast;
 
-        private static readonly int TimepieceTexture = Shader.PropertyToID("_TimepieceTexture");
+        private static readonly int TimepieceTexture = Shader.PropertyToID("_HiddenSceneTexture");
 
         private List<Collider> _colliders = new();
 
@@ -51,6 +55,13 @@ namespace Features.Time_Rift
             var texture = new RenderTexture(Screen.width, Screen.height, 24);
             Shader.SetGlobalTexture(TimepieceTexture, texture);
             hiddenCamera.targetTexture = texture;
+        }
+
+        private void Update()
+        {
+            hiddenCamera.CopyFrom(activeCamera);
+            activeCamera.cullingMask = activeCameraCullingMask;
+            hiddenCamera.cullingMask = hiddenCameraCullingMask;
         }
 
         public void OnInteract()

@@ -11,7 +11,8 @@ public class WaterEnterEvent : MonoBehaviour
     public GameObject foxWaterEmitter;
     public GameObject wolfWaterEmitter;
 
-    private int cooldownTimer;
+    private int foxCooldownTimer;
+    private int wolfCooldownTimer;
 
     //Ok voodat jullie gaan flamen wat de fuck dit cooldown timer voor nodig is, malbers heeft fucking 40 verschillende colliders die anders allemaal tegelijk die fucking sound gaan triggeren.
     //Ik trigger hier ook van en daarom heb ik dit gedaan. Als je hier een probleem mee hebt remove malbers maar dan kan ik daadwerkelijk een fatsoenlijk systeem hier voor doen ipv wat dit is.
@@ -19,28 +20,41 @@ public class WaterEnterEvent : MonoBehaviour
 
     private void OnTriggerEnter(Collider col)
     {
-        if (cooldownTimer == 0)
+        if (foxCooldownTimer == 0 && col.transform.root.name == foxObject.name)
         {
-            if (col.transform.root.name == foxObject.name)
-            {
-                foxWaterEmitter.SetActive(true);
-                cooldownTimer = 10;
-                Invoke("StopSound", 1);
-            }
-            if (col.transform.root.name == wolfObject.name)
-            {
-                wolfWaterEmitter.SetActive(true);
-                cooldownTimer = 10;
-                Invoke("StopSound", 1);
-            }
+            foxWaterEmitter.SetActive(true);
+            foxCooldownTimer = 10;
+            Invoke("StopSound", 2);
+        }
+        if(wolfCooldownTimer == 0 && col.transform.root.name == wolfObject.name)
+        {
+            wolfWaterEmitter.SetActive(true);
+            wolfCooldownTimer = 10;
+            Invoke("StopSound", 2);
+        }
+    }
+
+    private void OnTriggerStay(Collider col)
+    {
+        if (col.transform.root.name == foxObject.name)
+        {
+            foxCooldownTimer = 10;
+        }
+        if (col.transform.root.name == wolfObject.name)
+        {
+            wolfCooldownTimer = 10;
         }
     }
 
     private void FixedUpdate()
     {
-        if(cooldownTimer > 0)
+        if(foxCooldownTimer > 0)
         {
-            cooldownTimer--;
+            foxCooldownTimer--;
+        }
+        if (wolfCooldownTimer > 0)
+        {
+            wolfCooldownTimer--;
         }
     }
 

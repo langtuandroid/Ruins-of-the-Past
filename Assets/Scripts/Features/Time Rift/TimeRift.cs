@@ -7,8 +7,6 @@ namespace Features.Time_Rift
         private static readonly int MainTex = Shader.PropertyToID("_MainTex");
 
         private static readonly int TimepieceTexture = Shader.PropertyToID("_HiddenSceneTexture");
-        
-        private static readonly int SpherePercentage = Shader.PropertyToID("_SpherePercentage");
 
         private Material _material;
 

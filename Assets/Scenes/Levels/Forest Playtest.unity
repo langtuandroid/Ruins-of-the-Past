@@ -1148,8 +1148,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   players: []
   activeCamera: {fileID: 1236838173}
+  activeCameraCullingMask:
+    serializedVersion: 2
+    m_Bits: 0
+  activePhysicsLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  activeGroundLayer:
+    serializedVersion: 2
+    m_Bits: 0
   hiddenCamera: {fileID: 0}
   hiddenSceneIndex: 2
+  hiddenCameraCullingMask:
+    serializedVersion: 2
+    m_Bits: 0
+  hiddenPhysicsLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  hiddenGroundLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!4 &46822007
 Transform:
   m_ObjectHideFlags: 0

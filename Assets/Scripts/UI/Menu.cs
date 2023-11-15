@@ -24,7 +24,7 @@ namespace UI
                 ToggleFreeze(false);
         }
 
-        private void ToggleFreeze(bool toggleAnimator)
+        private void ToggleFreeze(bool togglePause)
         {
             foreach (var o in freezeTargets)
             {
@@ -34,7 +34,8 @@ namespace UI
                 var rigidBody = o.GetComponent<Rigidbody>();
 
                 input.enabled = _frozen;
-                animator.enabled = toggleAnimator && _frozen;
+                if (!togglePause) continue;
+                animator.enabled = _frozen;
                 rigidBody.isKinematic = !_frozen;
             }
 
@@ -56,7 +57,7 @@ namespace UI
             mainMenu.enabled = false;
 
             if (_frozen)
-                ToggleFreeze(true);
+                ToggleFreeze(false);
         }
 
         public void OnQuit()

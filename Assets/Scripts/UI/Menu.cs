@@ -35,7 +35,7 @@ namespace UI
 
                 input.enabled = _frozen;
                 animator.enabled = toggleAnimator && _frozen;
-                rigidBody.isKinematic = _frozen;
+                rigidBody.isKinematic = !_frozen;
             }
 
             _frozen = !_frozen;

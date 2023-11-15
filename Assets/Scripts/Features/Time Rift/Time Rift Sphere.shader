@@ -102,7 +102,7 @@ Shader "Unlit/Time Rift Sphere"
                 float4 screen_pos : TEXCOORD2;
                 float4 world_pos : TEXCOORD3;
                 float3 view_dir : TEXCOORD4;
-                UNITY_FOG_COORDS(1)
+                UNITY_FOG_COORDS(5)
             };
 
             v2f vert(appdata v)
@@ -182,7 +182,7 @@ Shader "Unlit/Time Rift Sphere"
                 //color = float4(screen_uv + vector_to_center, 1, 1);
                 //color = float4(distorted_uv, 1, 1);
                 //color = float4(mask.xyz, 1);
-                UNITY_APPLY_FOG(i.fogCoord, col);
+                UNITY_APPLY_FOG(i.fogCoord, color);
                 return color;
             }
             ENDCG

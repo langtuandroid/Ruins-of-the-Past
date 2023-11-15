@@ -138,14 +138,10 @@ Shader "Unlit/Time Rift Sphere"
 
                 float4 sphere_screen = ComputeScreenPos(mul(UNITY_MATRIX_VP, float4(sphere_origin, 1.0)));
                 float2 screen_position = sphere_screen.xy / abs(sphere_screen.w);
-                float2 screen_position_ratio = float2(
-                    screen_position.x,
-                    screen_position.y * (_ScreenParams.y / _ScreenParams.x)
-                );
 
                 const float2 screen_uv = i.screen_pos.xy / abs(i.screen_pos.w);
 
-                const float2 vector_to_center = normalize(screen_position_ratio - screen_uv) * 0.2;
+                const float2 vector_to_center = normalize(screen_position - screen_uv) * 0.2;
 
                 float hit;
                 float3 hit_position;
@@ -182,7 +178,7 @@ Shader "Unlit/Time Rift Sphere"
                 );
 
                 //color = float4(distorted_uv, 1, 1);
-                //color = float4(mask.xyz, mask.x);
+                //color = float4(mask.xyz, 1);
                 UNITY_APPLY_FOG(i.fogCoord, col);
                 return color;
             }

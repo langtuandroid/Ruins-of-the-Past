@@ -9,8 +9,8 @@ public class WalkEventController : MonoBehaviour
     private GameObject grassSoundEmitter;
     private GameObject stoneSoundEmitter;
     private GameObject woodSoundEmitter;
+    private GameObject waterSoundEmitter;
     private string groundType;
-
 
     // Start is called before the first frame update
     void Start()
@@ -18,10 +18,12 @@ public class WalkEventController : MonoBehaviour
         grassSoundEmitter = this.transform.GetChild(0).gameObject;
         stoneSoundEmitter = this.transform.GetChild(1).gameObject;
         woodSoundEmitter = this.transform.GetChild(2).gameObject;
+        waterSoundEmitter = this.transform.GetChild(3).gameObject;
 
         grassSoundEmitter.SetActive(false);
         stoneSoundEmitter.SetActive(false);
         woodSoundEmitter.SetActive(false);
+        waterSoundEmitter.SetActive(false);
     }
 
     // Update is called once per frame
@@ -79,6 +81,6 @@ public class WalkEventController : MonoBehaviour
                 woodSoundEmitter.SetActive(true);
             }
         }
-        else { grassSoundEmitter.SetActive(false); stoneSoundEmitter.SetActive(false); woodSoundEmitter.SetActive(false); }
+        else { grassSoundEmitter.SetActive(false); stoneSoundEmitter.SetActive(false); woodSoundEmitter.SetActive(false);}
     }
 }

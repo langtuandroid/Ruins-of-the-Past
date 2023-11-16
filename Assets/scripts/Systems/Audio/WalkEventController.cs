@@ -71,14 +71,20 @@ public class WalkEventController : MonoBehaviour
             if(groundType == "Grass")
             {
                 grassSoundEmitter.SetActive(true);
+                stoneSoundEmitter.SetActive(false);
+                woodSoundEmitter.SetActive(false);
             }
             if (groundType == "Stone")
             {
+                grassSoundEmitter.SetActive(false);
                 stoneSoundEmitter.SetActive(true);
+                woodSoundEmitter.SetActive(false);
             }
             if (groundType == "Wood")
             {
                 woodSoundEmitter.SetActive(true);
+                stoneSoundEmitter.SetActive(false);
+                grassSoundEmitter.SetActive(false);
             }
         }
         else { grassSoundEmitter.SetActive(false); stoneSoundEmitter.SetActive(false); woodSoundEmitter.SetActive(false);}

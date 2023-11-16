@@ -17,7 +17,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Levels/FirstPuzzle.unity
     guid: 3275aeb9f03804340be82617ae41616f
-  - enabled: 0
+  - enabled: 1
     path: Assets/Tests/PlayMode/Scenes/BreakablePlatformTest.unity
     guid: 04205aaaa198a74469abb348a89b9f1c
   - enabled: 0

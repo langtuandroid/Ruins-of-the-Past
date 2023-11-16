@@ -15,7 +15,7 @@ Shader "Unlit/Time Rift Sphere"
         Tags
         {
             "RenderPipeline"="UniversalPipeline"
-            "UniversalMaterialType" = "Unlit"
+            "UniversalMaterialType"="Unlit"
             "RenderType"="Transparent"
             "Queue"="Transparent"
         }
@@ -25,13 +25,13 @@ Shader "Unlit/Time Rift Sphere"
         Cull Back
         Blend SrcAlpha OneMinusSrcAlpha, One OneMinusSrcAlpha
         ZTest Always
-        ZWrite Off
+        ZWrite On
 
         Pass
         {
             Tags
             {
-                "LightMode" = "SRPDefaultUnlit"
+                "LightMode" = "UseColorTexture"
             }
 
             CGPROGRAM
@@ -102,7 +102,7 @@ Shader "Unlit/Time Rift Sphere"
                 float4 screen_pos : TEXCOORD2;
                 float4 world_pos : TEXCOORD3;
                 float3 view_dir : TEXCOORD4;
-                UNITY_FOG_COORDS(1)
+                UNITY_FOG_COORDS(5)
             };
 
             v2f vert(appdata v)
@@ -119,7 +119,7 @@ Shader "Unlit/Time Rift Sphere"
             }
 
             sampler2D _MainTex;
-            sampler2D _CameraOpaqueTexture;
+            sampler2D _GrabbedTexture;
             float _ScreenSpaceScale;
             float _DistortionExponent;
             float _SpherePercentage;
@@ -138,14 +138,10 @@ Shader "Unlit/Time Rift Sphere"
 
                 float4 sphere_screen = ComputeScreenPos(mul(UNITY_MATRIX_VP, float4(sphere_origin, 1.0)));
                 float2 screen_position = sphere_screen.xy / abs(sphere_screen.w);
-                float2 screen_position_ratio = float2(
-                    screen_position.x,
-                    screen_position.y * (_ScreenParams.y / _ScreenParams.x)
-                );
 
                 const float2 screen_uv = i.screen_pos.xy / abs(i.screen_pos.w);
 
-                const float2 vector_to_center = normalize(screen_position_ratio - screen_uv) * 0.2;
+                const float2 vector_to_center = normalize(screen_position - screen_uv) * 0.2;
 
                 float hit;
                 float3 hit_position;
@@ -175,15 +171,18 @@ Shader "Unlit/Time Rift Sphere"
                     mask / (1 - _SpherePercentage), _DistortionExponent);
 
                 fixed4 color = lerp(
-                    tex2D(_CameraOpaqueTexture, distorted_uv),
+                    tex2D(_GrabbedTexture, distorted_uv),
                     half4(tex2D(_MainTex, float2(screen_uv.x, 1 - screen_uv.y)) + inner_fresnel, 1),
                     //half4(half3(0, 0, 0) + inner_fresnel, 1.0),
                     hit
                 );
 
+                //color = float4(i.uv, 1, 1);
+                //color = float4(screen_uv, 1, 1);
+                //color = float4(screen_uv + vector_to_center, 1, 1);
                 //color = float4(distorted_uv, 1, 1);
-                //color = float4(mask.xyz, mask.x);
-                UNITY_APPLY_FOG(i.fogCoord, col);
+                //color = float4(mask.xyz, 1);
+                UNITY_APPLY_FOG(i.fogCoord, color);
                 return color;
             }
             ENDCG

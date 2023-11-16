@@ -15,13 +15,13 @@ public class CamZone : MonoBehaviour
 
    private void OnTriggerEnter(Collider other)
    {
-     if (other.CompareTag("Animal"))
+     if (other.CompareTag("Fox") || other.CompareTag("Wolf"))
         virtualCamera.enabled = true;
    }
    
    private void OnTriggerExit(Collider other)
    {
-      if (other.CompareTag("Animal"))
+      if (other.CompareTag("Fox") || other.CompareTag("Wolf"))
          virtualCamera.enabled = false;
    }
 

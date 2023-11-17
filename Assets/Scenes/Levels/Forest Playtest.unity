@@ -21586,7 +21586,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2611056783023910874, guid: 78fa88cfc0624414ca072e200a534029, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3070008225494537956, guid: 78fa88cfc0624414ca072e200a534029, type: 3}
       propertyPath: SphereCollider
@@ -22190,6 +22190,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7022db1aed9075140a813581591adcbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canDealDamage: 0
+  BiteDamage: 1
 --- !u!114 &940410910 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114222225517902476, guid: a578de702f2191b4fa9cdcec1ad493c5, type: 3}

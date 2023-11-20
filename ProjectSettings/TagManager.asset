@@ -10,7 +10,8 @@ TagManager:
   - Fly
   - Animal
   - Water
-  - wolf
+  - Wolf
+  - Fox
   layers:
   - Default
   - TransparentFX

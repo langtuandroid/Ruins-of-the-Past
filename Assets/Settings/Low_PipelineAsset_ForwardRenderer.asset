@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2d7651555ca445087eacb8f5dd94f18, type: 3}
   m_Name: GrabPassRenderFeature
   m_EditorClassIdentifier: 
-  m_Active: 0
-  _timing: 1
-  _grabbedTextureName: _GrabbedTexture
-  _shaderLightModes:
+  m_Active: 1
+  timing: 1
+  grabbedTextureName: _GrabbedTexture
+  shaderLightModes:
   - UseColorTexture
-  _sortingCriteria: 23
+  sortingCriteria: 23
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0

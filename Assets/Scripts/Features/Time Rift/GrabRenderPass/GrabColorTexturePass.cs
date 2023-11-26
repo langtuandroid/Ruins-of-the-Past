@@ -4,7 +4,6 @@ using UnityEngine.Rendering.Universal;
 
 namespace Features.Time_Rift.GrabRenderPass
 {
-
     /// <summary>
     ///     Path that grabs the color texture of the camera.
     /// </summary>
@@ -37,21 +36,14 @@ namespace Features.Time_Rift.GrabRenderPass
 
         public override void Execute(ScriptableRenderContext context, ref RenderingData renderingData)
         {
+            if (_renderer.cameraColorTargetHandle.rt == null)
+                return;
+
             var cmd = CommandBufferPool.Get(nameof(GrabColorTexturePass));
             cmd.Clear();
-            if (_renderer.cameraColorTargetHandle == null)
-            {
-                Debug.Log("Renderer camera color texture handle is null");
-                return;
-            }
 
-            if (_grabbedTextureHandle == null)
-            {
-                Debug.Log("Grabbed texture handle is null");
-                return;
-            }
-            
             Blit(cmd, _renderer.cameraColorTargetHandle, _grabbedTextureHandle);
+
             context.ExecuteCommandBuffer(cmd);
             CommandBufferPool.Release(cmd);
         }

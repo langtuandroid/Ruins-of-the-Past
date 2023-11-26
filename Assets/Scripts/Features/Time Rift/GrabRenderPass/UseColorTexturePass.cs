@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine.Rendering;
-using UnityEngine.Rendering.RendererUtils;
 using UnityEngine.Rendering.Universal;
 
 namespace Features.Time_Rift.GrabRenderPass
@@ -35,10 +34,8 @@ namespace Features.Time_Rift.GrabRenderPass
             var cmd = CommandBufferPool.Get();
             using (new ProfilingScope(cmd, _profilingSampler))
             {
-                // Render objects with specified LightModes.
                 var drawingSettings =
                     CreateDrawingSettings(_shaderTagIds, ref renderingData, _sortingCriteria);
-                //context.DrawRenderers(renderingData.cullResults, ref drawingSettings, ref _filteringSettings);
 
                 var rendererListParams = new RendererListParams(
                     renderingData.cullResults,

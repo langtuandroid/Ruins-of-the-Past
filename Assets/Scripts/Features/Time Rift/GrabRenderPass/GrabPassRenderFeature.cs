@@ -13,24 +13,24 @@ namespace Features.Time_Rift.GrabRenderPass
         private const string DefaultGrabbedTextureName = "_GrabbedTexture";
 
         [SerializeField] [Tooltip("When to grab color texture.")]
-        private GrabTiming _timing = GrabTiming.AfterTransparents;
+        private GrabTiming timing = GrabTiming.AfterTransparents;
 
         [SerializeField] [Tooltip("Texture name to use in the shader.")]
-        private string _grabbedTextureName = DefaultGrabbedTextureName;
+        private string grabbedTextureName = DefaultGrabbedTextureName;
 
         [SerializeField] [Tooltip("Light Mode of shaders that use grabbed texture.")]
-        private List<string> _shaderLightModes = new List<string> {DefaultShaderLightMode};
+        private List<string> shaderLightModes = new() {DefaultShaderLightMode};
 
         [SerializeField] [Tooltip("How to sort objects during rendering.")]
-        private SortingCriteria _sortingCriteria = SortingCriteria.CommonTransparent;
+        private SortingCriteria sortingCriteria = SortingCriteria.CommonTransparent;
 
         private GrabColorTexturePass _grabColorTexturePass;
         private UseColorTexturePass _useColorTexturePass;
 
         public override void Create()
         {
-            _grabColorTexturePass = new GrabColorTexturePass(_timing, _grabbedTextureName);
-            _useColorTexturePass = new UseColorTexturePass(_timing, _shaderLightModes, _sortingCriteria);
+            _grabColorTexturePass = new GrabColorTexturePass(timing, grabbedTextureName);
+            _useColorTexturePass = new UseColorTexturePass(timing, shaderLightModes, sortingCriteria);
         }
 
         public override void AddRenderPasses(ScriptableRenderer renderer, ref RenderingData renderingData)

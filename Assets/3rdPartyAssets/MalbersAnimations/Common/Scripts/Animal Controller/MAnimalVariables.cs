@@ -276,7 +276,7 @@ namespace MalbersAnimations.Controller
 
         #region General  
         /// <summary> Layers the Animal considers ground</summary>
-        [SerializeField] private LayerReference groundLayer = new LayerReference(1);
+        [SerializeField] public LayerReference groundLayer = new LayerReference(1);
 
         /// <summary> Layers the Animal considers ground</summary>
         public LayerMask GroundLayer => groundLayer.Value;
